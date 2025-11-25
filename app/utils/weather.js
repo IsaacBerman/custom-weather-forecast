@@ -166,7 +166,7 @@ export async function fetchWeatherData(latitude, longitude) {
           temperature: temps.reduce((sum, temp) => sum + temp, 0) / temps.length, // Average temperature
           precipitation_probability: Math.max(...pops),
           precipitation_total: precipitations.reduce((sum, precip) => sum + precip, 0),
-          weather_code: findMostCommon(weatherCodes),
+          weather_code: Math.max(...weatherCodes),
           weather_text: weatherCodeMap[Math.max(...weatherCodes)] || 'Unknown',
           hour_count: periodIndices.length
         };
