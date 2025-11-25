@@ -109,9 +109,6 @@ export default function LocationCard({ location, onDelete }) {
           </div>
           <div className="text-right text-sm space-y-1">
             <div className="bg-white px-2 py-1 rounded border">
-              <span className="font-semibold text-gray-900">{`POP: ${Math.round(weather.current.precipitation_probability)}%`}</span> 
-            </div>
-            <div className="bg-white px-2 py-1 rounded border">
               <span className="font-semibold text-gray-900">{`Precip: ${weather.current.precipitation.toFixed(1)}mm`}</span> 
             </div>
             <div className="bg-white px-2 py-1 rounded border">

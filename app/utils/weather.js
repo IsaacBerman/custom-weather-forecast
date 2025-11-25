@@ -93,7 +93,6 @@ export async function fetchWeatherData(latitude, longitude) {
       weather_code: current.variables(2).value(),
       weather_text: weatherCodeMap[current.variables(2).value()] || 'Unknown',
       cloud_cover: current.variables(3).value(),
-      precipitation_probability: 0
     };
 
     // Process hourly data - times are already in EST due to timezone parameter
@@ -168,7 +167,7 @@ export async function fetchWeatherData(latitude, longitude) {
           precipitation_probability: Math.max(...pops),
           precipitation_total: precipitations.reduce((sum, precip) => sum + precip, 0),
           weather_code: findMostCommon(weatherCodes),
-          weather_text: weatherCodeMap[findMostCommon(weatherCodes)] || 'Unknown',
+          weather_text: weatherCodeMap[Math.max(...weatherCodes)] || 'Unknown',
           hour_count: periodIndices.length
         };
       };
